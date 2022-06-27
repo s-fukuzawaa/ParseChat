@@ -23,11 +23,13 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(fetchMessages) userInfo:nil repeats:true];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 - (IBAction)sendButton:(id)sender {
     PFObject *chatMessage = [PFObject objectWithClassName:@"Message_MU2022"];
     // Use the name of your outlet to get the text the user typed
-        chatMessage[@"text"] = self.messageField.text;
+    chatMessage[@"text"] = self.messageField.text;
+    chatMessage[@"user"] = PFUser.currentUser;
     NSLog(@"%@", self.messageField.text);
     [chatMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (succeeded) {
@@ -47,6 +49,7 @@
 - (void) fetchMessages {
     PFQuery *query = [PFQuery queryWithClassName:@"Message_MU2022"];
     [query orderByDescending:@"createdAt"];
+    [query includeKey:@"user"];
 //    [query whereKey:@"likesCount" greaterThan:@100];
     query.limit = 20;
 
@@ -72,6 +75,16 @@
 
     ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell" forIndexPath:indexPath];
     PFObject *message = self.messageArr[indexPath.row];
+    PFUser *user = message[@"user"];
+    if (user != nil) {
+        // User found! update username label with username
+        NSLog(@"%@",user.username);
+        cell.username.text = user.username;
+    } else {
+        // No user found, set default username
+        cell.username.text = @"🤖";
+    }
+    
     cell.message.text = message[@"text"];
     return cell;
 }

@@ -86,17 +86,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLa-gy-rGd">
-                                                    <rect key="frame" x="20" y="11" width="374" height="58"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLa-gy-rGd">
+                                                    <rect key="frame" x="4" y="29" width="406" height="180"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GD-Sn-TQ5">
+                                                    <rect key="frame" x="4" y="4" width="406" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8GD-Sn-TQ5" firstAttribute="leading" secondItem="4On-fR-7ci" secondAttribute="leading" constant="4" id="446-Lc-3o5"/>
+                                                <constraint firstItem="bLa-gy-rGd" firstAttribute="top" secondItem="8GD-Sn-TQ5" secondAttribute="bottom" constant="4" id="8XH-GD-vVl"/>
+                                                <constraint firstItem="bLa-gy-rGd" firstAttribute="leading" secondItem="4On-fR-7ci" secondAttribute="leading" constant="4" id="8fG-ur-1Gt"/>
+                                                <constraint firstAttribute="bottom" secondItem="bLa-gy-rGd" secondAttribute="bottom" constant="4" id="K5V-sg-1oN"/>
+                                                <constraint firstItem="8GD-Sn-TQ5" firstAttribute="top" secondItem="4On-fR-7ci" secondAttribute="top" constant="4" id="Rzt-q5-pCi"/>
+                                                <constraint firstAttribute="trailing" secondItem="8GD-Sn-TQ5" secondAttribute="trailing" constant="4" id="bQz-Zt-EOI"/>
+                                                <constraint firstAttribute="trailing" secondItem="bLa-gy-rGd" secondAttribute="trailing" constant="4" id="fBg-gj-j4x"/>
+                                                <constraint firstItem="bLa-gy-rGd" firstAttribute="top" secondItem="8GD-Sn-TQ5" secondAttribute="bottom" constant="4" id="kq6-Xq-spA"/>
+                                                <constraint firstItem="bLa-gy-rGd" firstAttribute="centerX" secondItem="8GD-Sn-TQ5" secondAttribute="centerX" id="yYR-1v-6Cx"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="message" destination="bLa-gy-rGd" id="jkV-ye-iQw"/>
+                                            <outlet property="username" destination="8GD-Sn-TQ5" id="sp5-VN-d56"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
